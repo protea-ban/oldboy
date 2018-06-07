@@ -1,0 +1,339 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+body{
+    font-family: "Times New Roman";
+    font-size:12px;
+}
+/*----------------------head部分开始-----------------------*/
+
+.head-box{
+    background-color: #2459a2;
+    height: 44px;
+    width:100%;
+    position: fixed;
+    top:0;
+    left:0;
+}
+
+.head-content{
+    width:1016px;
+    /*background-color: blueviolet;*/
+    height:44px;
+    line-height: 44px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.head-content .logo{
+    display: inline-block;
+    background: url("images/logo.png");
+    width:121px;
+    height: 23px;
+    float: left;
+    margin-top: 11px;
+}
+
+.head-content .action-menu{
+    float: left;
+    margin-left: 11px;
+}
+
+.head-content .action-menu a.tb{
+    display: inline-block;
+
+    margin-left: -3px;
+    padding: 0 16px 0 13px;
+    color: darkgray;
+}
+
+.head-content .action-menu a.tb:hover{
+    color: white;
+    background-color: #396bb3;
+
+}
+
+.head-content .action-menu a.active, .head-content .action-menu a.active:hover{
+    color: white;
+    background-color: #204982;
+}
+
+.key-search{
+    float: right;
+    margin-top:5px;
+}
+
+.key-search .search-txt{
+    float: left;
+    width: 91px;
+    height: 25px;
+    padding:2px 2px 2px 5px;
+}
+
+.key-search a{
+    display: inline-block;
+    width: 31px;
+    height: 32px;
+    background-color: #f4f4f4;
+}
+
+.key-search a span.ico{
+    display: inline-block;
+    width: 11px;
+    height: 13px;
+    background: url("images/icon.png") no-repeat 0 -195px;
+    margin-left: 9px;
+    margin-bottom: 3px;
+}
+
+.action-nav{
+    position: absolute;
+    right: 150px;
+}
+
+.action-nav a{
+    display: inline-block;
+    line-height: 44px;
+    color: white;
+    margin: 0 5px;
+    padding: 0 20px;
+}
+
+.action-nav a:hover{
+    background-color: gold;
+}
+
+.main-content-box{
+    background-color: lightgray;
+    padding-top: 44px;
+}
+
+.main-content{
+    background-color: white;
+    margin:0 auto;
+    width:1016px;
+    /*高度最低要有700px，超过这个高度就自适应且不能被覆盖*/
+    height: auto!important;
+    min-height: 700px;
+    /*超出的部分隐藏起来*/
+    overflow: hidden;
+}
+
+.main-content .content-L{
+    float: left;
+    width: 630px;
+    margin-top:10px;
+    margin-left: 5px;
+}
+
+.main-content .top-area{
+    border-bottom: 1px solid #b4b4b4;
+    height: 40px;
+}
+
+.top-area .child-nav{
+    float: left;
+}
+
+.top-area .child-nav a{
+    display: inline;
+    width: 60px;
+    height: 60px;
+    line-height: 26px;
+    color: #369;
+    text-align: center;
+}
+
+.top-area .child-nav .active{
+    background: url("images/tip.png") no-repeat 0 -299px;
+    color: black;
+    font-weight: bold;
+}
+
+.sort-nav{
+    float: left;
+    margin-left: 110px;
+    margin-top: 7px;
+}
+
+.sort-nav a{
+    display: inline-block;
+    text-align: center;
+    color: #390;
+    margin-left: 10px;
+}
+
+.sort-nav .active{
+    color: #b4b4b4;
+}
+
+.publish-btn{
+    float: right;
+    display: inline-block;
+    width: 136px;
+    height: 32px;
+    background-color: #84a42b;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    line-height: 32px;
+}
+
+.content-list .item{
+    border-bottom: 1px solid #b4b4b4;
+    padding-top: 10px;
+}
+
+.content-list .item .news-pic{
+    float: right;
+}
+
+.content-list .part1{
+    line-height: 20px;
+}
+
+.content-list .item .part1:hover a.show-content{
+    text-decoration: underline;
+}
+
+.content-list .item .part2{
+    padding: 10px 0px;
+    color: #99aecb;
+}
+
+.part2 .hand-icon{
+    background: url("images/icon_18_118.png") no-repeat 0 0;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+}
+
+.part2 .icon-recommend{
+    background-position: 0 -40px;
+}
+
+.part2 .recommend:hover .icon-recommend{
+    background-position: 0 -20px;
+}
+
+.part2 .icon-discuss{
+    background-position: 0 -100px;
+}
+
+.part2 .discuss:hover .icon-discuss{
+    background-position: 0 -80px;
+}
+
+.part2 .icon-collect{
+    background-position: 0 -160px;
+}
+
+.part2 .collect:hover .icon-collect{
+    background-position: 0 -140px;
+}
+
+.part2 a{
+    margin-left: 8px;
+}
+
+.part2 a b, .part2 span i{
+    vertical-align: 4px;
+    font-size: 14px;
+}
+
+.share-site-to{
+    float: right;
+}
+
+
+.share-site-to .share-icon a{
+    display: inline-block;
+    width: 17px;
+    height: 14px;
+    background: url("images/share_icon.png") no-repeat 0 0;
+    /*调节透明度，相当于显示暗色*/
+    opacity: .3;
+}
+
+.share-icon a.icon-sina{
+    background-position: 0 -91px;
+}
+
+.share-icon a.icon-douban{
+    background-position: 0 -105px;
+}
+
+
+.share-icon a.icon-qqzone{
+    background-position: 0 -120px;
+}
+
+.share-icon a.icon-renren{
+    background-position: 0 -151px;
+}
+
+
+.share-icon a.icon-tenxun{
+    background-position: 0 -136px;
+}
+
+.share-site-to{
+    /*刚开始不显示，等悬浮的时候再显示*/
+    display: none;
+}
+
+.item:hover .share-site-to{
+    display: inline-block;
+}
+
+.share-site-to .share-icon a:hover{
+    /*鼠标悬浮时，透明度设为1*/
+    opacity: 1;
+}
+
+.page-area ul li{
+    display: inline-block;
+}
+
+.page-area ul li a{
+    display: inline-block;
+    color: #369;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    width: 34px;
+    border: 1px solid #e1e1e1;
+    border-radius: 15%;
+    margin-left: 5px;
+}
+
+.page-area ul li a.page-next{
+    width: 76px;
+}
+
+.page-area ul li a:hover{
+    background-color: #369;
+    color: white;
+}
+
+.page-area{
+    margin-left:50px;
+}
+
+
+
+
+
+.main-content .content-R{
+    float: left;
+}
+.main-content .footer-box{
+    clear: both;
+}
+
+
