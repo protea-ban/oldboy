@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="id1" onclick="begin()">
+<button onclick="end()">STOP</button>
+
+<script>
+    var click;
+    function showTime() {
+        var date = new Date();
+        var ele = document.getElementById("id1");
+        ele.value = date.toLocaleString();
+    }
+    function begin() {
+        if (click == undefined){
+            click = setInterval(showTime, 1000);
+        }
+    }
+
+    function end() {
+        clearInterval(click);
+        click = undefined
+    }
+</script>
+</body>
+</html>
