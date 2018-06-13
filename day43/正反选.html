@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button onclick="selectAll()">全选</button>
+    <button onclick="cancel()">取消</button>
+    <button onclick="fanxuan()">反选</button>
+    <table border="1px">
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>111</td>
+            <td>111</td>
+            <td>111</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>222</td>
+            <td>222</td>
+            <td>222</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox"></td>
+            <td>333</td>
+            <td>333</td>
+            <td>333</td>
+        </tr>
+
+    </table>
+    <script>
+        function selectAll() {
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0;i < inputs.length;i ++){
+                inputs[i].checked = true;
+            }
+
+        }
+        function cancel() {
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0;i < inputs.length;i ++){
+                inputs[i].checked = false;
+            }
+
+        }
+        function fanxuan() {
+            var inputs = document.getElementsByTagName("input");
+            for (var i = 0;i < inputs.length;i ++){
+                inputs[i].checked = !inputs[i].checked;
+            }
+
+        }
+    </script>
+</body>
+</html>

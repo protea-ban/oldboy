@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="provinces">
+    <option value="">请选择省份</option>
+</select>
+
+<select id="citys">
+    <option value="">请选择城市</option>
+</select>
+
+<script>
+    data = {
+        "河北省":["石家庄","保定"],
+        "河南省":["郑州","永城"],
+        "安徽省":["合肥","淮北"]
+    };
+    var pro_ele = document.getElementById("provinces");
+    var city_ele = document.getElementById("citys");
+
+    for(var i in data){
+        var ele = document.createElement("option");
+        ele.innerHTML = i;
+        pro_ele.appendChild(ele);
+    }
+    
+    pro_ele.onchange = function () {
+        var citys = data[this.options[this.selectedIndex].innerHTML];//关键句
+
+        city_ele.options.length = 1;//城市的option长度设为1，表示清空
+
+        for (var i = 0;i<citys.length;i++){
+            var ele = document.createElement("option");
+            ele.innerHTML = citys[i];
+            city_ele.appendChild(ele);
+        }
+
+    }
+</script>
+</body>
+</html>
