@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.1.js"></script>
+
+</head>
+<body>
+  <button>hide</button>
+  <p>helloworld helloworld helloworld</p>
+
+
+
+ <script>
+   $("button").click(function(){
+       $("p").hide(1000,function(){
+           alert($(this).html())
+       })
+
+   })
+    </script>
+</body>
+</html>

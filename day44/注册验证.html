@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="Form">
+
+    <p><input class="v1" type="text" name="username" mark="用户名"></p>
+    <p><input class="v1" type="text" name="email" mark="邮箱"></p>
+    <p><input class="v1" type="submit" value="submit" onclick="return validate()"></p>
+
+</form>
+
+<script src="jquery-3.1.1.js"></script>
+<script>
+    // 注意:
+    // DOM对象--->jquery对象    $(DOM)
+    // jquery对象--->DOM对象    $("")[0]
+
+    //---------------------------------------------------------
+
+
+    // DOM绑定版本
+    function validate() {
+
+        flag = true;
+
+        $("Form .v1").each(function () {
+            $(this).next("span").remove();// 防止对此点击按钮产生多个span标签
+            var value = $(this).val();
+            if (value.trim().length == 0) {
+                var mark = $(this).attr("mark");
+                var ele = document.createElement("span");
+                ele.innerHTML = mark + "不能为空!";
+                $(this).after(ele);
+                $(ele).prop("class", "error");// DOM对象转换为jquery对象
+                flag = false;
+                //  return false-------->引出$.each的return false注意点
+            }
+
+
+        });
+
+        return flag
+    }
+
+
+</script>
+</body>
+</html>

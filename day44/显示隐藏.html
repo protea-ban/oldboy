@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.1.js"></script>
+    <script>
+
+$(document).ready(function() {
+    $("#hide").click(function () {
+        $("p").hide(1000);
+    });
+    $("#show").click(function () {
+        $("p").show(1000);
+    });
+
+//用于切换被选元素的 hide() 与 show() 方法。
+    $("#toggle").click(function () {
+        $("p").toggle();
+    });
+})
+
+    </script>
+</head>
+<body>
+
+
+    <p>hello</p>
+    <button id="hide">隐藏</button>
+    <button id="show">显示</button>
+    <button id="toggle">切换</button>
+
+</body>
+</html>

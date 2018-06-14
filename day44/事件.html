@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+    <button>add</button>
+
+    <script src="jquery-3.1.1.js"></script>
+    <script>
+//        $("ul li").click(function () {
+//            alert(666);
+//        });
+
+        $("ul").on("click", "li", function () {
+           alert(999);
+        });
+
+        $("button").click(function () {
+            var $len = $("ul li").length;
+            var $ele = $("<li>");
+            $ele.html(($len + 1)*1111);
+            $("ul").append($ele);
+        })
+    </script>
+</body>
+</html>
