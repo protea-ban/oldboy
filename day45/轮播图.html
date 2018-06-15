@@ -7,77 +7,77 @@
     <script src="jquery-3.1.1.js"></script>
 </head>
 <body>
-    <div class="outer">
-        <ul class="img">
-            <li><a href=""><img src="img/1.jpg" alt=""></a></li>
-            <li><a href=""><img src="img/2.jpg" alt=""></a></li>
-            <li><a href=""><img src="img/3.jpg" alt=""></a></li>
-            <li><a href=""><img src="img/4.jpg" alt=""></a></li>
-            <li><a href=""><img src="img/5.jpg" alt=""></a></li>
-            <li><a href=""><img src="img/6.jpg" alt=""></a></li>
-        </ul>
+<div class="outer">
+    <ul class="img">
+        <li><a href=""><img src="img/1.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/2.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/3.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/4.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/5.jpg" alt=""></a></li>
+        <li><a href=""><img src="img/6.jpg" alt=""></a></li>
+    </ul>
 
-        <ul class="num">
-            <!--<li class="active"></li>-->
-            <!--<li></li>-->
-            <!--<li></li>-->
-            <!--<li></li>-->
-            <!--<li></li>-->
-            <!--<li></li>-->
-        </ul>
+    <ul class="num">
+        <!--<li class="active"></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+    </ul>
 
-        <div class="left btn"> < </div>
-        <div class="right btn"> > </div>
-    </div>
+    <div class="left btn"> <</div>
+    <div class="right btn"> ></div>
+</div>
 
-    <script>
-        var i = 0;
-        // 通过jQuery自动创建按钮
-        var img_num = $(".img li").length;
+<script>
+    var i = 0;
+    // 通过jQuery自动创建按钮
+    var img_num = $(".img li").length;
 
-        for (var j=0;j<img_num;j++){
-            $(".num").append("<li></li>")
+    for (var j = 0; j < img_num; j++) {
+        $(".num").append("<li></li>")
+    }
+
+    $(".num li:first").addClass("active");
+
+    // 手动轮播
+    $(".num li").mouseover(function () {
+        i = $(this).index();
+        $(this).addClass("active").siblings().removeClass("active");
+
+        $(".img li").eq(i).stop().fadeIn(500).siblings().stop().fadeOut(500);
+
+    });
+
+    //自动轮播
+    var c = setInterval(GO_R, 1500);
+    function GO_R() {
+        if (i == img_num - 1) {
+            i = -1
         }
-
-        $(".num li:first").addClass("active");
-
-        // 手动轮播
-        $(".num li").mouseover(function () {
-            i = $(this).index();
-            $(this).addClass("active").siblings().removeClass("active");
-
-            $(".img li").eq(i).stop().fadeIn(500).siblings().stop().fadeOut(500);
-
-        });
-
-        //自动轮播
-        var c = setInterval(GO_R,1500);
-        function GO_R() {
-            if(i == img_num-1){
-                i = -1
-            }
-            i ++;
-            $(".num li").eq(i).addClass("active").siblings().removeClass("active");
-            $(".img li").eq(i).stop().fadeIn(500).siblings().stop().fadeOut(500);
+        i++;
+        $(".num li").eq(i).addClass("active").siblings().removeClass("active");
+        $(".img li").eq(i).stop().fadeIn(500).siblings().stop().fadeOut(500);
+    }
+    function GO_L() {
+        if (i == 0) {
+            i = img_num - 1;
         }
-        function GO_L() {
-            if(i == 0){
-                i = img_num-1;
-            }
-            i --;
-            $(".num li").eq(i).addClass("active").siblings().removeClass("active");
-            $(".img li").eq(i).stop().fadeIn(500).siblings().stop().fadeOut(500);
-        }
+        i--;
+        $(".num li").eq(i).addClass("active").siblings().removeClass("active");
+        $(".img li").eq(i).stop().fadeIn(500).siblings().stop().fadeOut(500);
+    }
 
-        $(".outer").hover(function () {
-            clearInterval(c);
-        }, function () {
-            c = setInterval(GO_R, 1500);
-        });
-        
-        // button
-        $(".right").click(GO_R);
-        $(".left").click(GO_L);
-    </script>
+    $(".outer").hover(function () {
+        clearInterval(c);
+    }, function () {
+        c = setInterval(GO_R, 1500);
+    });
+
+    // button
+    $(".right").click(GO_R);
+    $(".left").click(GO_L);
+</script>
 </body>
 </html>

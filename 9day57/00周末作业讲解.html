@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>周末作业</title>
+    <style>
+        .cover {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #616161;
+            opacity: 0.4;
+            z-index: 998;
+        }
+
+        .modal {
+            height: 200px;
+            width: 300px;
+            background-color: white;
+            position: absolute;
+            margin-top: -100px;
+            margin-left: -150px;
+            top: 50%;
+            left: 50%;
+            z-index: 1000;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<button id="add">新增</button>
+<table border="1">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>姓名</th>
+        <th>爱好</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Egon</td>
+        <td>街舞</td>
+        <td>
+            <button class="edit-btn">编辑</button>
+            <button class="delete-btn">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Alex</td>
+        <td>烫头</td>
+        <td>
+            <button class="edit-btn">编辑</button>
+            <button class="delete-btn">删除</button>
+        </td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>苑局</td>
+        <td>日天</td>
+        <td>
+            <button class="edit-btn">编辑</button>
+            <button class="delete-btn">删除</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<div id="myCover" class="cover hide"></div>
+<div id="myModal" class="modal hide">
+    <div>
+        <p>
+            <label for="modal-name">姓名</label>
+            <input type="text" id="modal-name">
+        </p>
+        <p>
+            <label for="modal-habit">爱好</label>
+            <input type="text" id="modal-habit">
+        </p>
+        <p>
+            <button id="modal-submit">提交</button>
+            <button id="modal-cancel">取消</button>
+        </p>
+    </div>
+</div>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+    // 定义一个弹出模态框的函数
+    function showModal() {
+        $("#myCover,#myModal").removeClass("hide");
+    }
+
+    // 关闭模态框
+    function closeModal() {
+        // 1. 清空模态框中的input
+        $("#myModal").find("input").val("");
+        $("#myCover, #myModal").addClass("hide");
+    }
+
+    // 给新增按钮绑定事件
+    $("#add").on("click", function () {
+        // 把模态框弹出!
+        showModal();
+    });
+
+    // 模态框中的取消按钮绑定事件
+    $("#modal-cancel").on("click", function () {
+        // 1. 清空模态框中的input
+        // 2. 隐藏模态框
+        closeModal();
+    });
+
+    // 模态框中的提交按钮绑定事件
+    $("#modal-submit").on("click", function () {
+        // 1. 取到 用户 填写的 input框的值
+        var name = $("#modal-name").val();
+        var hobby = $("#modal-habit").val();
+
+        var $myModalEle = $("#myModal");
+        // 判断，按需操作
+        var $currentTrEle = $myModalEle.data("currentTr");
+        if ($currentTrEle !== undefined) {
+            // 说明是编辑状态
+            $currentTrEle.children().eq(1).text(name);
+            $currentTrEle.children().eq(2).text(hobby);
+
+            // 清除当前行的数据
+            $myModalEle.removeData();
+        } else {
+            // 创建tr标签把数据填进去
+            var trEle = document.createElement("tr");
+            var num = $("tr").length;
+            $(trEle).html(
+                    "<td>" + num + "</td>" +
+                    "<td>" + name + "</td>" +
+                    "<td>" + hobby + "</td>" +
+                    '<td> <button class="edit-btn">编辑</button> <button class="delete-btn">删除</button></td>'
+            );
+            // 把创建好的tr添加到tbody当中
+            $("tbody").append(trEle);
+        }
+
+
+        // 隐藏模态框
+        closeModal();
+    });
+
+
+    // 2. 根据是编辑 还是新增 做不同的操作
+    // 2.1 如果是新增操作,就生成一条新的tr,加到table的最后
+    // 2.2 如果是编辑操作, 根据先前 编辑 按钮那一行
+    // 难点在于 如何确定 编辑的是哪一行?  --> 利用data()可以存具体的jQuery对象
+
+    // 给每一行的编辑按钮绑定事件
+    // 要使用事件委托，基于已经存在的元素（页面加载完成后存在的标签）绑定事件
+    $("tbody").on("click", ".edit-btn", function () {
+        // 弹出模态框
+        showModal();
+
+        // 把原来的数据填写到模态框中的input标签中
+        var $currentTrEle = $(this).parent().parent();
+
+        // 把当前的JQuery对象保存起来
+        $("#myModal").data("currentTr", $currentTrEle);
+
+        var name = $currentTrEle.children().eq(1).text();
+        var hobby = $currentTrEle.children().eq(2).text();
+
+        // 填
+        $("#modal-name").val(name);
+        $("#modal-habit").val(hobby);
+
+    });
+
+    // 给每一行的删除按钮绑定事件
+    $("tbody").on("click", ".delete-btn", function () {
+
+        var $currentTrEle = $(this).parent().parent();
+
+        // 更新序号
+        // 找到删除行后的所有tr行，依次跟新序号
+        $currentTrEle.nextAll().each(function () {
+            // 拿到当前的序号值
+            var oldNum = $(this).children().first().text();
+            // 将序号值减一后赋值回去
+            $(this).children().first().text(oldNum - 1);
+        });
+
+        // 删除点击的那一行
+        $currentTrEle.remove();
+
+
+    });
+
+</script>
+</body>
+</html>
