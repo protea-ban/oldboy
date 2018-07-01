@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<a href="/add_user/">添加用户</a>
+<table class="table-bordered">
+    <thead>
+    <tr>
+        <th>用户ID</th>
+        <th>用户名</th>
+    </tr>
+    </thead>
+    {% for user in user_list %}
+        <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+<script src="/static/jquery-3.2.1.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
