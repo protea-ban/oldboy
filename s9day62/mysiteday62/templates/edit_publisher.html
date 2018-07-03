@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加出版社</title>
+</head>
+<body>
+<h1>编辑出版社</h1>
+<form action="/edit_publisher/" method="post">
+    <input type="text" name="id" value="{{ publisher.id }}" style="display: none">
+    <input type="text" name="publisher_name" value="{{ publisher.name }}">
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>
