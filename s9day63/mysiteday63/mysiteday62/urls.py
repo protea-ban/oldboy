@@ -1,4 +1,4 @@
-"""mysiteday63 URL Configuration
+"""mysiteday62 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -18,9 +18,15 @@ from django.contrib import admin
 from app01 import views
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    # 出版社相关的操作
     url(r'^publisher_list/', views.publisher_list),
     url(r'^add_publisher/', views.add_publisher),
     url(r'^delete_publisher/', views.delete_publisher),
     url(r'^edit_publisher/', views.edit_publisher),
+
+    # 书籍相关的操作
+    url(r'^book_list/', views.book_list),
+    url(r'^add_book/', views.add_book),
+    url(r'^delete_book/', views.delete_book),
+    url(r'^edit_book/', views.edit_book),
 ]
