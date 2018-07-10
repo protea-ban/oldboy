@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block main-page %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">出版社管理</h1>
+
+            <div class="panel panel-primary">
+                <!-- Default panel contents -->
+                <div class="panel-heading">出版社列表 <i class="fa fa-thumb-tack pull-right"></i></div>
+                <div class="panel-body">
+                    <div class="row" style="margin-bottom: 15px">
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">搜索</button>
+                                </span>
+                            </div><!-- /input-group -->
+                        </div><!-- /.col-md-4 -->
+                        <div class="col-md-3 pull-right">
+                            <button class="btn btn-success pull-right" data-toggle="modal" data-target="#myModal">新增</button>
+                            <a class="btn btn-success pull-right" href="/add_publisher/"><i class="fa fa-plus fa-fw"></i>新页面增加</a>
+                        </div>
+
+                    </div><!-- /.row -->
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>id</th>
+                            <th>出版社名称</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for publisher in publisher_list %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ publisher.id }}</td>
+                                <td>{{ publisher.name }}</td>
+                                <td>
+                                    <a class="btn btn-danger" href="/delete_publisher/?id={{ publisher.id }}"><i class="fa fa-trash-o fa-fw"></i>删除</a>
+                                    <a class="btn btn-info" href="/edit_publisher/?id={{ publisher.id }}"><i class="fa fa-pencil fa-fw"></i>编辑</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <nav aria-label="Page navigation" class="text-right">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+{% endblock %}
+
+{% block publisher_class %}
+    active
+{% endblock %}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://v3.bootcss.com/examples/dashboard/ -->
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://v3.bootcss.com/favicon.ico">
+
+    <title>添加书籍</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/static/dashboard.css" rel="stylesheet">
+</head>
+<body>
+{% include 'nav.html' %}
+<div class="container" style="margin-top: 70px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">添加新书</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" method="post" action="/add_book/">
+                        <div class="form-group">
+                            <label for="inputEmail3" class="col-sm-2 control-label">书名</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="book_title" class="form-control" id="inputEmail3"
+                                       placeholder="书名">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">出版社</label>
+                            <div class="col-sm-10">
+                                <select name="publisher_id">
+                                    {% for publisher in all_publisher %}
+                                        <option value="{{ publisher.id }}">{{ publisher.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-success">提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% load static %}
+<script src="{% static 'jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
