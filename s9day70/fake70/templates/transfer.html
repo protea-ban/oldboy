@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钓鱼的转账网站</title>
+</head>
+<body>
+<h1>钓鱼的转账网站</h1>
+<form action="http://127.0.0.1:8000/transfer/" method="post">
+    <p>
+        转账人：
+        <input type="text" name="from">
+    </p>
+
+    <p>
+        收款人：
+        <input type="text" name="">
+        <input type="text" name="to" value="班绍桓" style="display: none">
+    </p>
+
+    <p>
+        金额：
+        <input type="text" name="money">
+    </p>
+
+    <p>
+        <input type="submit" value="转账">
+    </p>
+</form>
+</body>
+</html>

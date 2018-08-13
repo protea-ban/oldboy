@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>这是卖房的首页！</title>
+</head>
+<body>
+<h1>这是卖房的首页！</h1>
+<p>友情链接：</p>
+{#不用别名时在HTML中的链接#}
+{#<a href="/car/home/">买车找我</a>#}
+
+{#使用别名时在HTML中的链接#}
+{#<a href="{% url 'car_home' %}">买车找我</a>#}
+
+{#存在命名空间时使用别名#}
+<a href="{% url 'car:home' %}">买车找我</a>
+</body>
+</html>
