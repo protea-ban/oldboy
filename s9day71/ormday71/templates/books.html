@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍列表</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>id</th>
+            <th>书名</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ book.id }}</td>
+                <td>{{ book.title }}</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+
+            {{ page_html|safe }}
+
+
+        </ul>
+    </nav>
+</div>
+
+
+</body>
+</html>
