@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+{#action为空或者为get_full_path意思都为将表单交给当前URL去处理#}
+<form action="{{ request.get_full_path }}" method="post">
+    {% csrf_token %}
+    <p>
+        用户名:
+        <input type="text" name="username">
+    </p>
+
+    <p>
+        密码：
+        <input type="password" name="pwd">
+    </p>
+
+    <p>
+        <input type="submit" value="登录">
+    </p>
+</form>
+</body>
+</html>
