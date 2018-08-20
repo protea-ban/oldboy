@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+</head>
+<body>
+{% csrf_token %}
+<input type="text" id="i1">+
+<input type="text" id="i2">=
+<input type="text" id="i3">
+<input type="button" value="Ajax提交" id="b1">
+<input type="button" value="test" id="b2">
+<input type="button" value="AjaxPOST提交" id="b3">
+
+
+<script src="/static/jquery-3.3.1.js"></script>
+
+<script>
+    $("#b1").on("click", function () {
+        var i1 = $("#i1").val();
+        var i2 = $("#i2").val();
+
+        $.ajax({
+            url: "/ajax_add/",
+            type: "get",
+            data: {"i1":i1, "i2": i2},
+            success: function (arg) {
+                $("#i3").val(arg);
+                {#alert(arg);#}
+            }
+        })
+    });
+
+    $("#b2").on("click", function () {
+        $.ajax({
+            url: "/test/",
+            type: "get",
+            success: function (a) {
+                var imgEle = document.createElement("img");
+                imgEle.href = a;
+                $("#2").after(imgEle);
+            }
+        })
+    });
+
+    $("#b3").on("click", function () {
+        var i1 = $("#i1").val();
+        var i2 = $("#i2").val();
+        var csrf_value = $("[name='csrfmiddlewaretoken']").val();
+
+        $.ajax({
+            url: "/ajax_post_add/",
+            type: "post",
+            data: {"i1":i1, "i2": i2, "csrfmiddlewaretoken": csrf_value},
+            success: function (arg) {
+                $("#i3").val(arg);
+                {#alert(arg);#}
+            }
+        })
+    });
+</script>
+</body>
+</html>

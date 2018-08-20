@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>人员管理</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/sweetalert/sweetalert.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/font-awesome.min.css">
+
+    <style>
+        .sweet-alert>h2 {
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">人员管理</h3>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>ID</th>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for p in persons %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ p.id }}</td>
+                        <td>{{ p.name }}</td>
+                        <td>{{ p.age }}</td>
+                        <td>
+                            <button class="btn btn-danger del"><i class="fa fa-trash-o">删除</i></button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="/static/jquery-3.3.1.js"></script>
+<script src="/static/sweetalert/sweetalert.min.js"></script>
+<script src="/static/setupajax.js"></script>
+<script>
+    // 绑定删除按钮
+    $(".del").on("click", function () {
+        // swal("标题", "内容", "success");
+
+        // 获取要删除数据的id
+        // 获取表格当前行的标签对象
+        var $trEle = $(this).parent().parent();
+        var delId = $trEle.children().eq(1).text();
+
+        swal({
+            title: "你确定要删除吗？",
+            text: "一旦删除就找不回来了",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-warning",
+            confirmButtonText: "确认",
+            cancelButtonText: "取消",
+            closeOnConfirm: false,
+            showLoaderOnConfirm: true
+        },
+            function () {
+                // 通过Ajax向后端传递数据
+                $.ajax({
+                    url: "/delete/",
+                    type: "post",
+                    data: {"id":delId},
+                    success:function (arg) {
+                        swal(arg, "你可以跑路了", "success");
+                        // 删除要删除数据所在的标签
+                        $trEle.remove();
+                    }
+                });
+            });
+    })
+</script>
+</body>
+</html>
