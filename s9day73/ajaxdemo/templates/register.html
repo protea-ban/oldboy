@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<p>
+   <input type="text" id="i1" name="name">
+    <span id="e1"></span>
+</p>
+
+<script src="/static/jquery-3.3.1.js"></script>
+<script src="/static/setupajax.js"></script>
+<script>
+    // 找到标签，绑定input标签内容改变事件
+    $("#i1").on("input", function () {
+        // 获取input里的值
+        var $i1Ele = $(this);
+        var name = $i1Ele.val();
+
+        // 校验前清空可能存在的提示标签的内容
+        $("#e1").text("");
+
+        $.ajax({
+            url: "/check_user/",
+            type: "post",
+            data: {"name":name},
+            datatype: "json",
+            success:function (arg) {
+                // 提示用的span标签放后面
+                $("#e1").text(arg).css("color", "red");
+            }
+        })
+    })
+</script>
+</body>
+</html>
