@@ -1,0 +1,38 @@
+/*登录页面的自定义样式*/
+.login-form {
+    margin-top: 70px;
+}
+
+.login-error {
+    color: red;
+}
+
+.valid-img {
+    height: 35px;
+    width: 220px;
+}
+
+/*注册页面的自定义样式*/
+.reg-form {
+    margin-top: 70px;
+}
+
+#avatar-img {
+    width: 80px;
+    height: 80px;
+}
+
+
+/* 博客主页面所用到的自定义样式 */
+.author-img {
+    width: 80px;
+    length: 80px;
+}
+
+.article-footer span {
+    margin-right: 15px;
+}
+
+.article-footer {
+    margin-top: 10px;
+}
