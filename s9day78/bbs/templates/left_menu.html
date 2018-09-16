@@ -1,0 +1,31 @@
+<!-- 左菜单开始 -->
+<div class="panel panel-primary">
+    <div class="panel-heading">文章分类</div>
+    <div class="panel-body">
+        {% for category in category_list %}
+            <p>{{ category.title }}({{ category.c }})</p>
+        {% endfor %}
+
+    </div>
+</div>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">文章标签</div>
+    <div class="panel-body">
+        {% for tag in tag_list %}
+            <p>{{ tag.title }}({{ tag.c }})</p>
+        {% endfor %}
+
+    </div>
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">日期归档</div>
+    <div class="panel-body">
+        {% for archive in archive_list %}
+            <p>{{ archive.archive_ym }}({{ archive.c }})</p>
+        {% endfor %}
+
+    </div>
+</div>
+<!-- 左菜单结束 -->
