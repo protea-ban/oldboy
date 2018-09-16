@@ -59,7 +59,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1053">
+            <state relative-caret-position="855">
               <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
             </state>
           </provider>
@@ -68,7 +68,7 @@
       <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="1425">
               <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
               <folding>
                 <element signature="e#21#44#0" expanded="true" />
@@ -281,18 +281,18 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.39933994" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.39933994" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3292683" />
       <window_info content_ui="combo" id="Project" order="0" weight="0.16944024" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" weight="0.32879657" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -692,7 +692,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="1425">
           <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
           <folding>
             <element signature="e#21#44#0" expanded="true" />
@@ -702,7 +702,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1053">
+        <state relative-caret-position="855">
           <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
         </state>
       </provider>
