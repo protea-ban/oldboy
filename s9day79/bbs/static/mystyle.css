@@ -1,0 +1,105 @@
+/*登录页面的自定义样式*/
+.login-form {
+    margin-top: 70px;
+}
+
+.login-error {
+    color: red;
+}
+
+.valid-img {
+    height: 35px;
+    width: 220px;
+}
+
+/*注册页面的自定义样式*/
+.reg-form {
+    margin-top: 70px;
+}
+
+#avatar-img {
+    width: 80px;
+    height: 80px;
+}
+
+
+/* 博客主页面所用到的自定义样式 */
+.author-img {
+    width: 80px;
+    length: 80px;
+}
+
+.article-footer span {
+    margin-right: 15px;
+}
+
+.article-footer {
+    margin-top: 10px;
+}
+
+
+/*个人博客主页样式*/
+.header {
+    height: 50px;
+    width: 100%;
+    color: white;
+}
+
+.header p {
+    font-size: 24px;
+    padding: 10px 0;
+    font-weight: bold;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.article-title {
+    font-size: 18px;
+}
+
+/*文章详情页样式*/
+#div_digg {
+    float: right;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    font-size: 12px;
+    width: 125px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.diggit {
+    float: left;
+    width: 46px;
+    height: 52px;
+    background: url(/static/img/upup.gif) no-repeat;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 2px;
+    padding-top: 5px;
+}
+
+.buryit {
+    float: right;
+    margin-left: 20px;
+    width: 46px;
+    height: 52px;
+    background: url(/static/img/downdown.gif) no-repeat;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 2px;
+    padding-top: 5px;
+}
+
+.clear {
+    clear: both;
+}
+
+.diggword {
+    margin-top: 5px;
+    margin-left: 0;
+    font-size: 12px;
+    color: red;
+}
