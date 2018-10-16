@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ blog.title }}</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/mystyle.css">
+    <link rel="stylesheet" href="/static/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/theme/{{ blog.theme }}">
+    <script src="/static/jquery-3.3.1.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="header">
+    <p>{{ blog.title }}</p>
+</div>
+
+<div class="container">
+    <div class="col-md-3">
+        {% load my_tags %}
+        {% get_left_menu username %}
+
+    </div>
+    <div class="col-md-8">
+        {% block page-main %}
+
+        {% endblock %}
+
+    </div>
+</div>
+
+</body>
+</html>
