@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block con %}
+    <h4>角色列表</h4>
+    {% if per.add %}
+    <a class="btn btn-primary" href="/roles/add">添加角色</a>
+    {% endif %}
+
+    <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>角色名称</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for role in roles_list %}
+    <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ role.title }}</td>
+    <td>
+        {% if per.delete %}
+        <a class="btn btn-danger" href="/roles/delete/{{ role.pk }}">删除</a>
+        {% endif %}
+        {% if per.edit %}
+        <a class="btn btn-warning" href="/roles/edit/{{ role.pk }}">编辑</a>
+        {% endif %}
+
+    </td>
+    </tr>
+    {% endfor %}
+
+    </tbody>
+    </table>
+{% endblock %}
