@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<a href="/book/add"><button>添加书籍</button></a>
+<hr>
+<table border="1">
+    {% for book in book_list %}
+       <tr>
+           <td>{{ book.title }}</td>
+           <td>{{ book.price }}</td>
+           <td>{{ book.date|date:"Y-m-d" }}</td>
+           <td>{{ book.publish.name }}</td>
+           <td>
+               {% for author in book.authors.all %}
+                   {{ author.name }}
+               {% endfor %}
+
+           </td>
+           <td><a href="/book/edit/{{book.pk}}"><button>编辑</button></a></td>
+       </tr>
+    {% endfor %}
+
+</table>
+
+
+</body>
+</html>
