@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>index</h3>
+
+<button class="get_service">服务</button>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    $(".get_service-1").click(function () {
+        $.ajax({
+            url: "http://127.0.0.1:8001/service/",
+            type: "get",
+            dataType: "jsonp",    // 伪造ajax  基于script
+            jsonp: "callbacks",
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
+    $(".get_service-2").click(function () {
+        $.ajax({
+            url: "http://127.0.0.1:8001/service/",
+            success: function (data) {
+                console.log(data);
+            }
+        });
+    });
+
+    // 实例应用
+    $(".get_service").click(function () {
+        $.ajax({
+            url: "http://www.jxntv.cn/data/jmd-jxtv2.html",
+            type: "get",
+            dataType: "jsonp",    // 伪造ajax  基于script
+            jsonp: "callbacks",
+            jsonpCallback: "list",
+            success: function (data) {
+                {#console.log(data.data);#}
+
+                var html = '';
+                $.each(data.data, function (index, weekday) {
+                    html += '<p>'+ weekday.week +'</p>';
+                    $.each(weekday.list, function (j, show) {
+                        html += '<p><label>'+ show.time +'</label>&nbsp;&nbsp;<a href='+ show.link +'>'+ show.name +'</a></p>';
+                    });
+                });
+
+                $("body").append(html);
+            }
+        });
+    });
+</script>
+</body>
+</html>
