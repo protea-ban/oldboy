@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<h3>查看{{ model_name }}数据</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <a href="{{ add_url }}" class="btn btn-primary">添加数据</a>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    {% for item in header_list %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+
+                </tr>
+                </thead>
+                <tbody>
+                {% for new_data in new_data_list %}
+                    <tr>
+                        {% for data in new_data %}
+                            <td>{{ data }}</td>
+                        {% endfor %}
+
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
