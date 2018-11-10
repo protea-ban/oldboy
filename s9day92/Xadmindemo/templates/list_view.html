@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h3>查看{{ model_name }}数据</h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <a href="{{ add_url }}" class="btn btn-primary">添加数据</a>
+
+            {% if showlist.config.search_fields %}
+                <form action="" class="pull-right">
+                    <input type="text" name="q" value="{{ showlist.config.key_words }}">
+                    <button>搜索</button>
+                </form>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                <select name="action" id="" style="width: 200px;padding: 5px 8px;display: inline-block">
+                    <option value="">------</option>
+                    {% for action in showlist.get_action_list %}
+                        <option value="{{ action.name }}">{{ action.short_description }}</option>
+                    {% endfor %}
+
+                </select>
+                <button class="btn btn-info">Go</button>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        {% for item in showlist.get_header %}
+                            <td>{{ item }}</td>
+                        {% endfor %}
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for new_data in showlist.get_body %}
+                        <tr>
+                            {% for data in new_data %}
+                                <td>{{ data }}</td>
+                            {% endfor %}
+
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pagination">
+                        <li>{{ showlist.pagination.page_html | safe }}</li>
+                    </ul>
+                </nav>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <div class="filter">
+                <h4>Filter</h4>
+                {% for filter_field, linktags in showlist.get_filter_linktags.items %}
+                    <div class="well">
+                        <p>BY {{ filter_field.upper }}</p>
+                        {% for link in linktags %}
+                            <p>{{ link|safe }}</p>
+                        {% endfor %}
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
