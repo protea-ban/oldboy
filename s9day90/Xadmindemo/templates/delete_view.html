@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<h3>删除页面</h3>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <button class="btn btn-danger">确认删除？</button>
+    <a href="{{ url }}" class="btn btn-default">取消</a>
+</form>
+
+</body>
+</html>
