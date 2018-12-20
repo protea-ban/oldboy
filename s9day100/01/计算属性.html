@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="computed">
+      <div class="">
+        {{reverseStr}}
+      </div>
+      <p>{{this.msg}}</p>
+
+      <button @click='clickHandler'>修改</button>
+    </div>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script>
+      var com = new Vue({
+        el:"#computed",
+        data:{
+          msg:"Hello World"
+        },
+        computed:{
+          reverseStr(){
+            return this.msg.split('').reverse().join('');
+          }
+
+        },
+        methods:{
+          clickHandler(){
+            this.msg = "Hello Luffy";
+          }
+
+        }
+      })
+    </script>
+  </body>
+</html>

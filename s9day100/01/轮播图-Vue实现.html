@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="computed">
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>{{this.time}}</li>
+    </ul>
+    </div>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script>
+      var com = new Vue({
+        el:"#computed",
+        data:{
+          msg:"111",
+          time:`页面加载于${new Date().toLocaleString()}`,
+        },
+        computed:{
+
+        },
+        methods:{
+
+        }
+      })
+    </script>
+  </body>
+</html>
