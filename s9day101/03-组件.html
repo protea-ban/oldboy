@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+    <div id="app">
+      <Vheader></Vheader>
+
+    </div>
+
+  </body>
+  <script type="text/javascript" src="./vue.js"> </script>
+  <script>
+
+    Vue.component(
+      'Vheader',{
+        data:function(){
+          return {
+            
+          }
+
+        },
+        template:`<div class="header">
+                    <div class="w">
+                      <div class="w-1">
+                        <img src="./1.png" alt="777">
+                      </div>
+                      <div class="w-r">
+                        <button>注册</button>
+                        <button>登录</button>
+                      </div>
+                    </div>
+                  </div>`
+      }
+    )
+    var music = new Vue({
+      el:"#app",
+      data:{
+
+      },
+      methods: {
+
+      },
+      computed:{
+
+      }
+    })
+  </script>
+</html>
