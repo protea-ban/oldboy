@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<h3>查看公共客户</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <th>ID</th>
+                    <th>姓名</th>
+                    <th>QQ</th>
+                    <th>咨询顾问</th>
+                    <th>查看咨询记录</th>
+                    <th>确认跟进</th>
+                </thead>
+                <tbody>
+                    {% for public_customer in public_customer_list %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ public_customer.name }}</td>
+                            <td>{{ public_customer.qq }}</td>
+                            <td>{{ public_customer.consultant }}</td>
+                            <td><a href="/Xadmin/crm/consultrecord/?customer={{ public_customer.pk }}">点击查看</a></td>
+                            <td><a href="/Xadmin/crm/customer/further/{{ public_customer.pk }}">确认跟进</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

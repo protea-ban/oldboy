@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block con %}
+<h3>添加数据</h3>
+
+{% include 'form.html' %}
+
+<script>
+    function pop_response(pk, text, id) {
+        console.log(pk);
+        console.log(text);
+        console.log(id);
+
+        // 选择相应的select标签
+        // option文本值和value值
+
+        var $option = $('<option>');// 创建标签
+        $option.html(text); // 加文本
+        $option.val(pk);    // 加value
+        $option.attr("selected", "selected");   // 加属性
+        $("#"+id).append($option);  // 将option标签加上去
+    }
+</script>
+{% endblock %}

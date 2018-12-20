@@ -1,0 +1,8 @@
+.filter a{
+    text-decoration: none;
+    color: grey;
+}
+
+.active{
+    color: rebeccapurple!important;
+}
