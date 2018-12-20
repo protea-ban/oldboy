@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h3>我的跟进记录</h3>
+<ul>
+    {% for customer_distribute in customer_distribute_list %}
+        <li>
+            {{ customer_distribute.customer }}---{{ customer_distribute.date }}---{{ customer_distribute.get_status_display }}
+        </li>
+    {% endfor %}
+
+</ul>
+
+</body>
+</html>
