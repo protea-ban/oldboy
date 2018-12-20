@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<script>
+    // 调用该窗口的窗口执行该函数
+    window.opener.pop_response('{{ res.pk }}', '{{ res.text }}', '{{ res.pop_res_id }}');
+    window.close();
+</script>
+</body>
+</html>
