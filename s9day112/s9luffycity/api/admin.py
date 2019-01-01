@@ -9,3 +9,5 @@ superuser:root root1111
 admin.site.register(models.Course)
 admin.site.register(models.CourseDetail)
 admin.site.register(models.Chapter)
+admin.site.register(models.UserInfo)
+admin.site.register(models.PricePolicy)
