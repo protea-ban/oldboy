@@ -29,6 +29,13 @@ class PaymentViewSet(APIView):
         """
         ret = BaseResponse()
         try:
+            # 清空当前用户结算中心的数据
+            # luffy_payment_1_*
+            # luffy_payment_coupon_1
+            key_list = self.conn.keys(settings.PAYMENT_KEY % (request.auth.user_id, "*"))
+            key_list.append(settings.PAYMENT_COUPON_KEY % (request.auth.user_id))
+            self.conn.delete(*key_list)
+
             # 支付信息字典
             payment_dict = {}
             # 没有绑定课程的优惠券信息字典
