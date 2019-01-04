@@ -1,5 +1,5 @@
 from django.conf.urls import url,include
-from api.views import course, account, shoppingcar
+from api.views import course, account, shoppingcar, payment
 
 urlpatterns = [
     # 方式一 分配两个url
@@ -14,4 +14,5 @@ urlpatterns = [
     url(r'^auth/$', account.AuthView.as_view()),
     url(r'^micro/$', course.MicroView.as_view()),
     url(r'^shoppingcar/$', shoppingcar.ShoppingCarViewSet.as_view()),
+    url(r'^payment/$', payment.PaymentViewSet.as_view())
 ]

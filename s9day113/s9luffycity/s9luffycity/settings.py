@@ -140,3 +140,7 @@ CACHES = {
 
 # 购物车关键字的设置
 SHOPPING_CAR_KEY = "luffy_shopping_car_%s_%s"
+# 课程优惠券关键字的设置
+PAYMENT_KEY = "luffy_payment_%s_%s"
+# 全局优惠券关键字的设置
+PAYMENT_COUPON_KEY = "luffy_payment_coupon_%s"
